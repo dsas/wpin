@@ -115,7 +115,7 @@ class Wpin_Shortcode {
 			$description = nl2br( esc_html( trim( $entry['n'] ) ) );
 			$bookmarker = $entry['a'];
 			$tags = array_map( 'esc_html', $entry['t'] );
-			$bookmarked_at_utc = esc_html( $entry['dt'] );
+			$bookmarked_at_utc = esc_attr( $entry['dt'] );
 			$timestamp_format = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
 			$bookmarked_at_human = esc_html( date_i18n( $timestamp_format, strtotime( $entry['dt'] )));
 
