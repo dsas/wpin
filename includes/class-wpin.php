@@ -92,6 +92,11 @@ class Wpin {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpin-i18n.php';
 
+		/**
+		 * The class responsible for shortcodes
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpin-shortcode.php';
+
 		$this->loader = new Wpin_Loader();
 
 	}
@@ -120,7 +125,8 @@ class Wpin {
 	 * @access   private
 	 */
 	private function register_hooks() {
-
+		$shortcode_parser = new Wpin_Shortcode();
+		$this->loader->add_shortcode( Wpin_Shortcode::TAG, array( $shortcode_parser, 'shortcode' ) );
 	}
 
 	/**
